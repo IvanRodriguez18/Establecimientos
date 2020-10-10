@@ -1,0 +1,37 @@
+.navbar{
+    .container{
+        .navbar-brand{
+            color: $gray;
+            font-size: 1.3rem;
+            .icono-map{
+                font-size: 2rem;
+            }
+            &:hover{
+                color: $gray;
+            }
+        }
+        .navegacion{
+            li{
+                margin-right: 20px;
+                .link{
+                    color: $gray;
+                    font-size: 1rem;
+                    &:hover .icono-nav{
+                        color: $violet;
+                    }
+                }
+            }
+            .dropdown-menu{
+                background-color: $violet;
+                .dropdown-item{
+                    display: inline-block;
+                    color: $white;
+                    &:hover{
+                        background: none;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+.card-login{
+    border-radius: 10px;
+    background: $white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .titulo{
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 0;
+        span{
+            font-family: $font-family-sans-serif;
+            color: $gray;
+            font-size: 1.2rem;
+        }
+    }
+    .card-body{
+        form{
+            .input{
+                border-radius: 0;
+                border: none;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                &:focus{
+                    outline: none;
+                }
+            }
+            .lbl-check{
+                color: $gray;
+            }
+            .btn{
+                background: $violet;
+                color: $white;
+                border-radius: 50px;
+                font-family: $font-family-sans-serif;
+                font-weight: normal;
+                transition: ease all .3s;
+                &:hover{
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            .btn-link{
+                color: $violet;
+                &:hover{
+                    opacity: .9;
+                    text-decoration: none;
+                }
+            }
+            .seccion-form{
+                display: block;
+                margin-bottom: 5px;
+                color: $gray;
+                font-weight: bold;
+            }
+            .aviso{
+                margin-bottom: 5px;
+                color: $gray;
+                font-size: .9rem;
+                font-style: italic;
+                .marcador{
+                    font-weight: bold;
+                }
+            }
+            .alerta{
+                color: $red;
+                font-size: .8rem;
+            }
+        }
+        .text-confirm{
+            color: $gray;
+            font-size: .9rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+
+
