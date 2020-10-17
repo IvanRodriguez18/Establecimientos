@@ -14,6 +14,10 @@
     }
     .card-body{
         form{
+            textarea{
+                min-height: 200px;
+                max-height: 400px;
+            }
             .input{
                 border-radius: 0;
                 border: none;
@@ -64,6 +68,10 @@
             .alerta{
                 color: $red;
                 font-size: .8rem;
+            }
+            .dropzone{
+                border: 3px dashed $violet;
+                border-radius: 10px;
             }
         }
         .text-confirm{

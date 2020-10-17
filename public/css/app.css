@@ -19,6 +19,11 @@
   font-size: 1.2rem;
 }
 
+.card-login .card-body form textarea {
+  min-height: 200px;
+  max-height: 400px;
+}
+
 .card-login .card-body form .input {
   border-radius: 0;
   border: none;
@@ -80,6 +85,11 @@
 .card-login .card-body form .alerta {
   color: #f37777;
   font-size: 0.8rem;
+}
+
+.card-login .card-body form .dropzone {
+  border: 3px dashed #58355E;
+  border-radius: 10px;
 }
 
 .card-login .card-body .text-confirm {
