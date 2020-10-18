@@ -22,6 +22,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    @if (session('estado'))
+        <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+            <strong>Felicidades!</strong> {{ session('estado') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
             <div class="container">

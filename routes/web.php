@@ -22,5 +22,8 @@ Auth::routes(['verify' => true]);
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/establecimiento/create', 'EstablecimientoController@create')->name('establecimiento.create');
     Route::get('/establecimiento/edit', 'EstablecimientoController@edit')->name('establecimiento.edit');
+    Route::post('/establecimiento', 'EstablecimientoController@store')->name('establecimiento.store');
+    //Rutas para manipular la imagen cargada por el usuario con Dropzone
     Route::post('/imagenes/store' , 'ImagenController@store')->name('imagenes.store');
+    Route::post('/imagenes/destroy', 'ImagenController@destroy')->name('imagenes.destroy');
 });

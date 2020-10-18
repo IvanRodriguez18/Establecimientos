@@ -92,6 +92,15 @@
   border-radius: 10px;
 }
 
+.card-login .card-body form .dropzone .dz-remove {
+  color: #58355E;
+  font-weight: bold;
+}
+
+.card-login .card-body form .dropzone .dz-remove:hover {
+  text-decoration: none;
+}
+
 .card-login .card-body .text-confirm {
   color: #636b6f;
   font-size: 0.9rem;

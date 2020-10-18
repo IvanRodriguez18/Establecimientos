@@ -3,8 +3,10 @@ const provider = new OpenStreetMapProvider();
 document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('#mapa'))
     {
-        const lat = 20.666332695977;
-        const lng = -103.392177745699;
+        const latitud = document.querySelector('#lat').value;
+        const longitud = document.querySelector('#lng').value;
+        const lat = latitud === '' ? 20.666332695977 : latitud;
+        const lng = longitud === '' ? -103.392177745699 : longitud;
         const mapa = L.map('mapa').setView([lat, lng], 17);
 
         //Eliminar PINES previos que puedan salir en el mapa

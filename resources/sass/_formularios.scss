@@ -72,6 +72,13 @@
             .dropzone{
                 border: 3px dashed $violet;
                 border-radius: 10px;
+                .dz-remove{
+                    color: $violet;
+                    font-weight: bold;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
             }
         }
         .text-confirm{

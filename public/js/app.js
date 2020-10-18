@@ -63970,7 +63970,10 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./resources/js/dropzone.js ***!
   \**********************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    Axios = _require["default"];
 
 document.addEventListener('DOMContentLoaded', function () {
   //Declaración de variables
@@ -63984,17 +63987,30 @@ document.addEventListener('DOMContentLoaded', function () {
       dictDefaultMessage: 'Sube hasta 10 imagenes del establecimiento',
       maxFiles: 10,
       required: true,
-      acceptedFiles: ".png, .jpg, .gif, .jpeg",
+      acceptedFiles: ".png,.jpg,.gif,.jpeg",
+      addRemoveLinks: true,
+      dictRemoveFile: "Quitar Imagen",
       headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content
       },
       success: function success(file, respuesta) {
         //console.log(file)
-        console.log(respuesta);
+        //console.log(respuesta)
+        file.nombreServidor = respuesta.archivo;
       },
       sending: function sending(file, xhr, formData) {
-        formData.append('uuid', uuid);
-        console.log('Enviando...');
+        formData.append('uuid', uuid); //console.log('Enviando...')
+      },
+      removedfile: function removedfile(file, respuesta) {
+        //console.log(file);
+        var params = {
+          imagen: file.nombreServidor
+        };
+        axios.post('/imagenes/destroy', params).then(function (respuesta) {
+          //console.log(respuesta)
+          //Eliminar la imagen previa a cargar del Dom
+          file.previewElement.parentNode.removeChild(file.previewElement);
+        });
       }
     });
   }
@@ -64071,8 +64087,10 @@ document.addEventListener('DOMContentLoaded', function () {
       document.querySelector('#lng').value = resultado.latlng.lng || '';
     };
 
-    var lat = 20.666332695977;
-    var lng = -103.392177745699;
+    var latitud = document.querySelector('#lat').value;
+    var longitud = document.querySelector('#lng').value;
+    var lat = latitud === '' ? 20.666332695977 : latitud;
+    var lng = longitud === '' ? -103.392177745699 : longitud;
     var mapa = L.map('mapa').setView([lat, lng], 17); //Eliminar PINES previos que puedan salir en el mapa
 
     var markers = new L.FeatureGroup().addTo(mapa);

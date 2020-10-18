@@ -13,7 +13,7 @@
                 <div class="card-login">
                     <div class="titulo"><span>Registra un establecimiento</span></div>
                     <div class="card-body">
-                        <form action="#" method="POST" enctype="multipart/form-data" novalidate>
+                        <form action="{{ route('establecimiento.store') }}" method="POST" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-md-6">
@@ -38,6 +38,11 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    @error('categoria_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-2">
