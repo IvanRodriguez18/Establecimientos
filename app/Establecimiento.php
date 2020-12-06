@@ -21,4 +21,10 @@ class Establecimiento extends Model
         'uuid',
         'categoria_id'
     ];
+
+    //Relación entre la tabla establecimiento y categoria
+    public function categoria()
+    {
+        return $this->belongsTo(Categoria::class);
+    }
 }

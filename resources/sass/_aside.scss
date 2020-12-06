@@ -1,0 +1,25 @@
+.titulo-general{
+    color: $gray;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.informacion{
+    background: $white;
+    padding: 10px;
+    border-top: 5px solid $violet;
+    .titulo-info{
+        color: $gray;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .texto{
+        color: $gray;
+        font-weight: bold;
+        margin-left: 5px;
+        display: inline-block;
+        .icono{
+            font-size: 1rem;
+        }
+    }
+}

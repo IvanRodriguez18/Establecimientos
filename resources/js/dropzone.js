@@ -1,11 +1,11 @@
 const { default: Axios } = require("axios");
 
 document.addEventListener('DOMContentLoaded', () => {
-    //Declaración de variables
-    const uuid = document.querySelector('#uuid').value;
     //Verificar que el elemento de dropzone exista en el documento HTML
     if (document.querySelector('#dropzone'))
     {
+        //Declaración de variables
+        const uuid = document.querySelector('#uuid').value;
         Dropzone.autoDiscover = false;
         //Creando la instancia a la clase Dropzone
         const dropzone = new Dropzone('div#dropzone', {
@@ -19,6 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: {
                 'X-CSRF-TOKEN': document.querySelector('meta[name=csrf-token]').content
             },
+            init: function (){
+                const galeria = document.querySelectorAll('.galeria');
+                if (galeria.length > 0) {
+                    galeria.forEach(imagen =>{
+                        const imagenPublicada = {};
+                        imagenPublicada.size = 1;
+                        imagenPublicada.name = imagen.value;
+                        imagenPublicada.nombreServidor = imagen.value;
+                        this.options.addedfile.call(this, imagenPublicada);
+                        this.options.thumbnail.call(this, imagenPublicada, `/storage/${imagenPublicada.name}`);
+                        imagenPublicada.previewElement.classList.add('dz-success');
+                        imagenPublicada.previewElement.classList.add('dz-complete');
+                    })
+                }
+            },
             success: function (file, respuesta) {
                 //console.log(file)
                 //console.log(respuesta)
@@ -31,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
             removedfile: function (file, respuesta) {
                 //console.log(file);
                 const params = {
-                    imagen: file.nombreServidor
+                    imagen: file.nombreServidor,
+                    uuid: uuid
                 }
                 axios.post('/imagenes/destroy', params)
                 .then(respuesta => {
